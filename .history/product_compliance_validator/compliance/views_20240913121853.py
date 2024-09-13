@@ -94,5 +94,12 @@ def standard_list(request):
 
 # View to display the compliance result
 def compliance_result(request):
-    # You can adjust this to show compliance results
-    return render(request, 'compliance/compliance_result.html')
+    # Fetch the compliance result from the database
+    result_id = request.GET.get("result_id")
+    result = get_object_or_404(ComplianceResult, pk=result_id)
+
+    # Render the compliance result template with the result data
+    context = {
+        "result": result,
+    }
+    return render(request, "compliance/compliance_result.html", context)

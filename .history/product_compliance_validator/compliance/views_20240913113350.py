@@ -66,33 +66,16 @@ def add_product(request):
         form = ProductForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("product_list") # Redirect to a product list or some other view
+            return redirect("add_products")
     else:
         form = ProductForm()
     return render(request, "compliance/add_product.html", {"form": form})
-
-# View to add a new compliance standard
-def add_standard(request):
+def add_product(request):
     if request.method == "POST":
-        form = ComplianceStandardForm(request.POST)
+        form = ProductForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("standard_list") # Redirect to a standard list or some other view
+            return redirect("product_list")
     else:
-        form = ComplianceStandardForm()
-    return render(request, "compliance/add_standard.html", {"form": form}) 
-
-# List of products
-def product_list(request):
-    products = Product.objects.all()
-    return render(request, "compliance/product_list.html", {"products": products})
-
-# List of compliance standards
-def standard_list(request):
-    standards = ComplianceStandard.objects.all()
-    return render(request, "compliance/standard_list.html", {"standards": standards})
-
-# View to display the compliance result
-def compliance_result(request):
-    # You can adjust this to show compliance results
-    return render(request, 'compliance/compliance_result.html')
+        form = ProductForm()
+    return render(request, "compliance/add_product.html", {"form": form})

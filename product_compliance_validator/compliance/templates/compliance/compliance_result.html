@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Result</title>
+</head>
+<body>
+    <h1>Compliance Check Result</h1>
+
+    <p>Product: {{ product.name }}</p>
+    <p>Standard: {{ standard.name }}</p>
+
+    {% if is_compliant %}
+        <p><strong>Status: Compliant</strong></p>
+        <p>{{ compliance_message }}</p>
+    {% else %}
+        <p><strong>Status: Non-Compliant</strong></p>
+        <p>{{ compliance_message }}</p>
+    {% endif %}
+
+    <a href="{% url 'check_compliance' %}">Back to Compliance Check</a>
+</body>
+</html>

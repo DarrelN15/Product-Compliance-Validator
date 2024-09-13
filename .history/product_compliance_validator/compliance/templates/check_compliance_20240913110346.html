@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Compliance</title>
+</head>
+<body>
+    <h1>Check Product Compliance</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="product">Select Product:</label>
+        <select name="product" id="product">
+            {% for product in products %}
+                <option value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="standard">Select Compliance Standard:</label>
+        <select name="standard" id="standard">
+            {% for standard in standards %}
+                <option value="{{ standard.id }}">{{ standard.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Check Compliance</button>
+    </form>
+</body>
+</html>

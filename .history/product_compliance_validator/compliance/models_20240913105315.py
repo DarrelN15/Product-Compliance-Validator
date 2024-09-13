@@ -16,13 +16,11 @@ class ComplianceStandard(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    weight = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)  # Example field
-    dimensions = models.CharField(max_length=50, blank=True, null=True)  # Example field
-    material_composition = models.TextField(blank=True, null=True)  # Example field
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -38,4 +36,3 @@ class ComplianceResult(models.Model):
 
     def __str__(self):
         return f"{self.product.name} vs {self.standard.name} - {'Compliant' if self.is_compliant else 'Non-Compliant'}"
-    

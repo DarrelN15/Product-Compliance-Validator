@@ -91,8 +91,3 @@ def product_list(request):
 def standard_list(request):
     standards = ComplianceStandard.objects.all()
     return render(request, "compliance/standard_list.html", {"standards": standards})
-
-# View to display the compliance result
-def compliance_result(request):
-    # You can adjust this to show compliance results
-    return render(request, 'compliance/compliance_result.html')
