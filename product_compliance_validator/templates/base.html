@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Product Compliance Validator{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+    <!-- Static CSS (optional) -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Other head elements (meta, scripts, etc.) can go here -->
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+    <!-- Navigation (optional) -->
+    <nav>
+        <!-- Your navigation links go here -->
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        {% block content %}
+        <!-- This block will be replaced by specific page content -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer (optional) -->
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+
+    <!-- Static JS (optional) -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>
