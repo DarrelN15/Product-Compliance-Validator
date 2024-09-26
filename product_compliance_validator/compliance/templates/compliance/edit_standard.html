@@ -1,0 +1,15 @@
+{% extends 'compliance/base.html' %}
+
+{% block title %}Edit Compliance Standard{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Edit Compliance Standard</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Update Standard</button>
+    </form>
+
+    <a href="{% url 'standard_list' %}" class="btn btn-secondary mt-3">Back to Standard List</a>
+{% endblock %}

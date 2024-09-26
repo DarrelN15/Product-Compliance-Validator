@@ -1,0 +1,15 @@
+{% extends 'compliance/base.html' %}
+
+{% block title %}Delete Standard{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Delete Compliance Standard</h1>
+
+    <p>Are you sure you want to delete the standard "<strong>{{ standard.name }}</strong>"?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'standard_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
+

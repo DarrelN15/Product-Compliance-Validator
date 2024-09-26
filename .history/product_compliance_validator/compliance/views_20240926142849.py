@@ -116,23 +116,3 @@ def delete_product(request, product_id):
         product.delete()
         return redirect('product_list')
     return render(request, 'compliance/delete_product.html', {'product': product})
-
-# Edit standard view
-def edit_standard(request, standard_id):
-    standard = get_object_or_404(ComplianceStandard, id=standard_id)
-    if request.method == 'POST':
-        form = ComplianceStandardForm(request.POST, instance=standard)
-        if form.is_valid():
-            form.save()
-            return redirect('standard_list')
-    else:
-        form = ComplianceStandardForm(instance=standard)
-    return render(request, 'compliance/edit_standard.html', {'form': form})
-
-# Delete standard view
-def delete_standard(request, standard_id):
-    standard = get_object_or_404(ComplianceStandard, id=standard_id)
-    if request.method == 'POST':
-        standard.delete()
-        return redirect('standard_list')
-    return render(request, 'compliance/delete_standard.html', {'standard': standard})
