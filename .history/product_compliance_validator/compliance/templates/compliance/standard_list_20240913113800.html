@@ -1,0 +1,7 @@
+<h1>Compliance Standards</h1>
+<ul>
+    {% for standard in standards %}
+        <li>{{ standard.name }} - {{ standard.description }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_standard' %}">Add New Standard</a>

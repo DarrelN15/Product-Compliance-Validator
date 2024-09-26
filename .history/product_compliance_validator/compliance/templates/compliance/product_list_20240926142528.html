@@ -1,12 +1,10 @@
 {% extends 'compliance/base.html' %}
 
-
 {% block title %}Product List{% endblock %}
 
 {% block content %}
     <h1 class="mb-4">Product List</h1>
-    
-    <!-- Product Table -->
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -16,6 +14,7 @@
                 <th scope="col">Weight</th>
                 <th scope="col">Dimensions</th>
                 <th scope="col">Material</th>
+                <th scope="col">Actions</th> <!-- New column for actions -->
             </tr>
         </thead>
         <tbody>
@@ -27,10 +26,14 @@
                     <td>{{ product.weight }}</td>
                     <td>{{ product.dimensions }}</td>
                     <td>{{ product.material_composition }}</td>
+                    <td>
+                        <a href="{% url 'edit_product' product.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    
+
     <a href="{% url 'add_product' %}" class="btn btn-primary">Add New Product</a>
 {% endblock %}

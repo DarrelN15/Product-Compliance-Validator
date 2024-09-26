@@ -10,6 +10,7 @@
             <tr>
                 <th scope="col">Standard Name</th>
                 <th scope="col">Description</th>
+                <th scope="col">Actions</th> <!-- New column for actions -->
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,10 @@
                 <tr>
                     <td>{{ standard.name }}</td>
                     <td>{{ standard.description }}</td>
+                    <td>
+                        <a href="{% url 'edit_standard' standard.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'delete_standard' standard.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
