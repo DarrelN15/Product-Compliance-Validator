@@ -1,2 +1,21 @@
-echo ".DS_Store" >> .gitignore
-echo ".history/" >> .gitignore
+# Ignore temporary files
+*.tmp
+*.bak
+*.log
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore Python virtual environment
+venv/
+.venv/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore duplicate files with timestamps
+*_20*
+
+# history files
+.history/
